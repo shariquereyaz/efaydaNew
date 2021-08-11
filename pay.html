@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" type="images/ico" sizes="16x16">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" >
+<!--FavIcon-->
+    <title>Payment</title>
+  </head>
+ 
+  <body class="bg-light">
+    
+<div class="container">
+  <div class="py-5 text-center">
+     <img class="d-block mx-auto mb-4" src="images/logo.jpeg" alt="" width="72" height="72">
+    <h2>Payment Form</h2>
+    <p class="lead">Fill the form to proceed with Payment.</p>
+  </div>
+
+  <div class="row g-3">
+     
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3"><b>Details</b></h4>
+      <form class="needs-validation" method="get"  action="thanks.html">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">Domain Name</label>
+            <input type="text" class="form-control" id="domainName" placeholder="" value="" required  >
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+           
+
+          <div class="col-6">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <input type="email" class="form-control" id="email" placeholder="Email" required>
+            <div class="invalid-feedback">
+                Your email is required.
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div class="col-6">
+            <label for="address" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="9123456789" required onkeypress='validate(event)' maxlength="10">
+            <div class="invalid-feedback">
+              Please enter your phone number.
+            </div>
+          </div>
+
+ <div class="col-6">
+ 	<label for="service" class="form-label">Service</label>
+ 	<!-- <div class="form-control"> -->
+          <select class="form-control">
+		  <option selected disabled>Select</option>
+		  <option value="Hosting">Hosting-Rs.1100/year. </option>
+		  <option value="Domain">Domain-Price as per Domain Name provider.</option>
+		  <option value="Hosting and Domain">Hosting and Domain</option>
+</select>
+</div>
+ 
+        </div>
+
+       
+
+      
+        <hr class="my-4">
+
+        <h4 class="mb-3">Payment</h4>
+
+ <div class="col-md-6">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" class="form-control" id="amount" placeholder="" required onkeypress='validate(event)'>
+            <small class="text-muted">Amount to nearest rupee.</small>
+            <div class="invalid-feedback">
+              Amount required.
+            </div>
+          </div>
+
+        <div class="my-3">
+          <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+            <label class="form-check-label" for="credit">Credit card</label>
+          </div>
+          <div class="form-check">
+            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+            <label class="form-check-label" for="debit">Debit card</label>
+          </div>
+           
+        </div>
+
+        <div class="row gy-3">
+          <div class="col-md-6">
+            <label for="cc-name" class="form-label">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">
+              Name on card is required
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="cc-number" class="form-label">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required onkeypress='validate(event)' minlength="16" maxlength="16">
+            <div class="invalid-feedback">
+              Credit card number is required
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiration</label>
+            <input type="month" class="form-control" id="cc-expiration" placeholder="" required>
+            <div class="invalid-feedback">
+              Expiration date required
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input type="password" class="form-control" id="cc-cvv" placeholder=""  onkeypress='validate(event)' minlength="3" maxlength="3" required>
+            <div class="invalid-feedback">
+              Security code required
+            </div>
+          </div>
+
+          <div class="col-md-3">
+          	<div class="text-success">
+           <!--  <h6 class="my-0">CODE</h6> -->
+           <label for="cc-cvv" class="form-label">Code</label>
+             <input type="text" class="form-control" placeholder="EMP100" required="true" maxlength="6">
+          </div>
+          <span class="text-success"> </span>
+          </div>
+
+          
+
+        </div>
+
+       
+
+        <hr class="my-4">
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit"  onclick="Submit()">Pay</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1"><script>
+							var year = new Date();							
+							document.write(year.getFullYear());
+					</script>
+							<a style="text-decoration:none" href="http://www.efayda.ml" target="_blank"> EFAYDA</a>
+							 Designed with &hearts; 
+	</p>
+     
+  </footer>
+</div>
+
+    
+ 
+	 
+
+ 
+ 
+ 
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" ></script>
+    <script src="pay.js"></script>
+    <!-- <script type="text/javascript">
+    	function Submit(){
+
+    		var digits = '0123456789'; 
+    var referenceId = ''; 
+    for (var i = 0; i < 6; i++ ) { 
+        referenceId += digits[Math.floor(Math.random() * 10)]; 
+    } 
+    		 
+    		alert("Thanks a lot. Your reference id is "+ referenceId);
+    	}
+
+    </script>
+
+
+    <script type="text/javascript">
+    	function validate(evt) {
+  var theEvent = evt || window.event;
+
+  // Handle paste
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  }
+   else {
+  // Handle key press
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]/;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+    </script> -->
+  </body>
+</html>	
