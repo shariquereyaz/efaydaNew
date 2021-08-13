@@ -57,7 +57,7 @@
   var dateString = date.toString();
 
         let data = {"time": dateString};
-        //console.log(data);
+         
         
 fetch("https://www.myjdb.xyz/eSCREC", {
   method: "POST", 
@@ -66,9 +66,7 @@ fetch("https://www.myjdb.xyz/eSCREC", {
   },
   body: JSON.stringify(data)
 });
-// .then(res => {
-//   console.log("Request complete! response:", res);
-// });
+ 
 
     }
     const audioRecordConstraints = {
