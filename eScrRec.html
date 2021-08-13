@@ -10,13 +10,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="container">
     <div class="container mt-3">
-    <span><a id="download" style="display: none;"><button type="button" class="btn btn-primary mb-4"> Download</button></a></span>
-    <button type="button" class="btn btn-danger" id="stop" disabled>Stop</button>
-    <button type="button" onclick="recordAudio()" class="btn btn-info">Record Audio</button>
-    <button type="button" onclick="recordVideo()" class="btn btn-info">Record Video</button>
-    <button type="button" onclick="recordScreen()" class="btn btn-info">Record Screen</button>
+        <span><a id="download" style="display: none;"><button type="button" class="btn btn-primary mb-4"> Download</button></a></span>
+        <button type="button" class="btn btn-danger" id="stop" disabled>Stop</button>
+        <button type="button" onclick="recordAudio()" class="btn btn-info">Record Audio</button>
+        <button type="button" onclick="recordVideo()" class="btn btn-info">Record Video</button>
+        <button type="button" onclick="recordScreen()" class="btn btn-info">Record Screen</button>
+        <h1>Record your Screen for Free without Watermark.</h1>
+    <div>
+
+        <small >
+            By using Screen Recorder which is free you agree to the following terms:-
+            This service is provided under an "as is" condition. It might change or will be discontinued without prior notice. The maker of this service can't be held liable in any way for any reason.
+            The service should be used only for legal purposes.
+            We do not Upload your recorded video. The video is saved to your Computer only.         
+            No backup. If your data is lost due to some technical issues, it's lost forever.
+        </small>
+    </div>
     <div class="p-5">
         <video autoplay height='480' width="640" muted></video>
     </div>
@@ -44,7 +55,7 @@
         let data = {"time": dateString};
         //console.log(data);
         
-fetch("https://ejstore.herokuapp.com/eSCREC", {
+fetch("https://www.myjdb.xyz/eSCREC", {
   method: "POST", 
   headers: {
     'Content-Type': 'application/json',
