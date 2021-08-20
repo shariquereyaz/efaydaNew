@@ -24,10 +24,10 @@
   </head>
   <body onload=" M.toast({html: 'The price includes Domain and Hosting.', classes: 'rounded'})">
     <div class="container">
-      <h6>Final Website Price</h6>
+      <h6>Annual Website Price</h6>
       <form   action="#">
         <input type="text" placeholder="Domain Name" id="domainName" required>
-        <button type="button" onclick="checkPrice()">Submit</button>
+        <button type="button" onclick="checkPrice()" class="waves-effect waves-light btn">Submit</button>
       </form>
 
       <table id="table_id" class="display">
@@ -35,7 +35,7 @@
           <tr>
             <th>Domain</th>
             <th>Availability</th>
-            <th>Price</th>
+            <th>Price(₹)</th>
           </tr>
         </thead>
         <tbody>
@@ -52,7 +52,7 @@
         <footer>
             <th>Domain</th>
             <th>Availability</th>
-            <th>Price</th>
+            <th>Price(₹)</th>
         </footer>
       </table>
     </div>
