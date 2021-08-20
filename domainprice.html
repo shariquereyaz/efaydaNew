@@ -95,6 +95,11 @@ if(domain==null)
 
     $('#table_id').DataTable({ 
         "order": [[ 2, "desc" ]],
+        oLanguage: {sProcessing: 
+          "<div class='progress'><div class='indeterminate'></div></div>"
+        
+        
+        },
          ajax: {
         //  url: "https://dpri.herokuapp.com/dp/efayda",
          //url:"https://localhost:5001/dp/"+domain,
