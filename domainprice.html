@@ -21,9 +21,9 @@
       href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
     />
   </head>
-  <body>
+  <body onload=" M.toast({html: 'The price includes Domain and Hosting.'})">
     <div class="container">
-      <h6>Domain Price</h6>
+      <h6>Final Website Price</h6>
 
       <table id="table_id" class="display">
         <thead>
@@ -85,9 +85,15 @@ if(domain==null)
     columns: [   
              
             { data: 'domain' },
-            { data: 'available' },
-            { data: 'price' }     
-                 ]
+            { data: 'available',
+            'render':function (data, type, row) {
+              return (data === true) ? '<i class="small material-icons green darken-1">check</i>' :
+              '<i class="small material-icons red darken-1">clear</i>';
+            }         
+            
+          },            
+          { data: 'price' }     
+              ]
           });
 } );
     </script>
