@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--DataTables Plugin-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h6>Domain Price</h6>
+
+      <table id="table_id" class="display">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Availability</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Row 1 Data 1</td>
+            <td>Row 1 Data 2</td>
+            <td>Row 1 Data 2</td>
+          </tr>
+          <tr>
+            <td>Row 2 Data 1</td>
+            <td>Row 2 Data 2</td>
+            <td>Row 2 Data 2</td>
+          </tr>
+        </tbody>
+        <footer>
+            <th>Domain</th>
+            <th>Availability</th>
+            <th>Price</th>
+        </footer>
+      </table>
+    </div>
+    <!--jQuery CDN-->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--DataTables Plugin JS-->
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"
+    ></script>
+    <script>
+        $(document).ready( function () {
+
+            const urlParams = new URLSearchParams(window.location.search);
+const domain = urlParams.get('d');
+if(domain==null)
+{
+    domain="domain"
+}
+
+    $('#table_id').DataTable({ 
+        "order": [[ 2, "desc" ]],
+         ajax: {
+        //  url: "https://dpri.herokuapp.com/dp/efayda",
+         //url:"https://localhost:5001/dp/"+domain,
+         url:"https://dpri.herokuapp.com/dp/"+domain,
+
+         dataSrc: "[]"
+               },
+    columns: [   
+             
+            { data: 'domain' },
+            { data: 'available' },
+            { data: 'price' }     
+                 ]
+          });
+} );
+    </script>
+     
+  </body>
+</html>
