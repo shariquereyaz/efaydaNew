@@ -117,15 +117,15 @@
           },
           columns: [
             { data: "domain" },
-            { data: "price" },
             { 
               data: "available",
               render: function (data, type, row) {
                 return data === true
-                  ? '<i class="small material-icons green darken-1">check</i>'
-                  : '<i class="small material-icons red darken-1">clear</i>';
+                ? '<i class="small material-icons green darken-1">check</i>'
+                : '<i class="small material-icons red darken-1">clear</i>';
               },
             },
+            { data: "price" },
           ],
         });
       });
