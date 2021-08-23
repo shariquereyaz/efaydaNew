@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,12 +21,20 @@
       href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
     />
   </head>
-  <body onload=" M.toast({html: 'The price includes Domain and Hosting.', classes: 'rounded'})">
+  <body
+    onload=" M.toast({html: 'The price includes Domain and Hosting.', classes: 'rounded'})"
+  >
     <div class="container">
       <h6>Annual Website Price</h6>
-      <form   action="#">
-        <input type="text" placeholder="Domain Name" id="domainName"  >
-        <button type="button" onclick="checkPrice()" class="waves-effect waves-light btn">Submit</button>
+      <form action="#">
+        <input type="text" placeholder="Domain Name" id="domainName" />
+        <button
+          type="button"
+          onclick="checkPrice()"
+          class="waves-effect waves-light btn"
+        >
+          Submit
+        </button>
       </form>
 
       <table id="table_id" class="display">
@@ -40,19 +47,18 @@
         </thead>
         <tbody>
           <tr>
-            <td colspan="3">Please type domain name above and click submit.
+            <td colspan="3">
+              Please type domain name above and click submit.
               <!-- <a href=" https://efayda.in/domainprice.html?domain=efayda"> https://efayda.in/domainprice.html?domain=efayda</a> -->
             </td>
             <!-- <td>Please type https://efayda.in/domainprice.html?d=efayda</td>
             <td>Please type https://efayda.in/domainprice.html?d=efayda</td> -->
-             
           </tr>
-          
         </tbody>
         <footer>
-            <th>Domain</th>
-            <th>Availability</th>
-            <th>Price(₹)</th>
+          <th>Domain</th>
+          <th>Availability</th>
+          <th>Price(₹)</th>
         </footer>
       </table>
     </div>
@@ -72,57 +78,57 @@
     ></script>
     <script>
       var domainName;
-      function checkPrice(){
-        domainName=document.getElementById('domainName').value;
+      function checkPrice() {
+        domainName = document.getElementById("domainName").value;
         console.log(domainName);
-        if(domainName!=null)
-        {
-          window.open("https://efayda.in/domainprice.html?domain="+domainName,"_self");
+        if (domainName != null) {
+          window.open(
+            "https://efayda.in/domainprice.html?domain=" + domainName,
+            "_self"
+          );
+        } else {
+          window.open(
+            "https://efayda.in/domainprice.html?domain=efayda",
+            "_self"
+          );
         }
-        else{
-          window.open("https://efayda.in/domainprice.html?domain=efayda","_self");
-        }
-        
       }
-        $(document).ready( function () {
+      $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const domain = urlParams.get("domain");
+        if (domain == null) {
+          domain = "efayda";
+        }
 
-            const urlParams = new URLSearchParams(window.location.search);
-const domain = urlParams.get('domain');
-if(domain==null)
-{
-    domain="efayda"
-}
+        $("#table_id").DataTable({
+          order: [[2, "desc"]],
+          processing: true,
+          oLanguage: {
+            sProcessing:
+              "<div class='progress'><div class='indeterminate'></div></div>",
+          },
+          ajax: {
+            //url: "https://dpri.herokuapp.com/dp/efayda",
+            //url:"https://localhost:5001/dp/"+domain,
+            url: "https://dpri.herokuapp.com/dp/" + domain, ///
+            //         console.log(data);
 
-    $('#table_id').DataTable({ 
-        "order": [[ 2, "desc" ]],
-        "processing": true,
-        oLanguage: {sProcessing: 
-          "<div class='progress'><div class='indeterminate'></div></div>"
-          
-        
-        },
-         ajax: {
-        //  url: "https://dpri.herokuapp.com/dp/efayda",
-         //url:"https://localhost:5001/dp/"+domain,
-         url:"https://dpri.herokuapp.com/dp/"+domain,///
-
-         dataSrc: "[]"
-               },
-    columns: [   
-             
-            { data: 'domain' },
-            { data: 'available',
-            'render':function (data, type, row) {
-              return (data === true) ? '<i class="small material-icons green darken-1">check</i>' :
-              '<i class="small material-icons red darken-1">clear</i>';
-            }         
-            
-          },            
-          { data: 'price' }     
-              ]
-          });
-} );
+            dataSrc: "[]",
+          },
+          columns: [
+            { data: "domain" },
+            { data: "price" },
+            {
+              data: "available",
+              render: function (data, type, row) {
+                return data === true
+                  ? '<i class="small material-icons green darken-1">check</i>'
+                  : '<i class="small material-icons red darken-1">clear</i>';
+              },
+            },
+          ],
+        });
+      });
     </script>
-     
   </body>
 </html>
