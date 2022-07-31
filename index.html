@@ -687,7 +687,7 @@
     
       let params = (new URL(document.location)).searchParams;
 let auth_code = params.get("auth_code");
-console.log(name,"auth_code");
+console.log(auth_code,"auth_code");
 fetch('https://ms-at.herokuapp.com/home/accesscode?' + new URLSearchParams({
   auth_code: auth_code ,
 }))
