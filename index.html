@@ -684,6 +684,10 @@
            
         }
       }
+    
+      let params = (new URL(document.location)).searchParams;
+let name = params.get("name");
+console.log(name,"name");
     </script>
   </body>
 </html>
