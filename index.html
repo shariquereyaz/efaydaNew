@@ -689,7 +689,7 @@
 let auth_code = params.get("auth_code");
 console.log(auth_code,"auth_code");
 fetch('https://ms-at.herokuapp.com/home/accesscode?' + new URLSearchParams({
-  auth_code: auth_code ,
+  auth_code: auth_code ,mode: "no-cors"
 }))
     </script>
   </body>
